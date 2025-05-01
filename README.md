@@ -42,24 +42,12 @@ Before you begin, make sure you have the following installed:
 
 6. Run MySQL Container:
    ```
-   docker run -d \
-   --name mysql \
-   --network two-tier \
-   -e MYSQL_ROOT_PASSWORD=root \
-   -e MYSQL_DATABASE=devops \
-   mysql
+   docker run -d --name mysql --network two-tier -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=devops mysql
    ```
 
 7. Run Flask Backend Container:
    ```
-   docker run -d \
-   -p 5000:5000 \
-   --network two-tier \
-   -e MYSQL_HOST=mysql \
-   -e MYSQL_USER=root \
-   -e MYSQL_PASSWORD=root \
-   -e MYSQL_DB=devops \
-   two_tier_flask_backend:latest
+   docker run -d -p 5000:5000 --network two-tier -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DB=devops two_tier_flask_backend:latest
    ```
 8.  Inspect the Docker Network:
    ```
